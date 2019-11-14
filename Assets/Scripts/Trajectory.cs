@@ -67,7 +67,8 @@ public class Trajectory : MonoBehaviour
     {
         float distance = Vector3.Distance(position, attractor.transform.position);
 
-        if(distance < attractor.GetRadius())
+        // TODO generify this
+        if(distance <= attractor.GetRadius() + data.radius * 0.1)
         {
             return attractor.CalculateForce(position, data.mass) / data.mass;
         }
