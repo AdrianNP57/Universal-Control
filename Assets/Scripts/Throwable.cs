@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Throwable : MonoBehaviour
 {
     public float forceMultiplier;
+    public DraggingEvent onDragging;
 
     private Rigidbody rb;
 
@@ -28,6 +31,20 @@ public class Throwable : MonoBehaviour
             dragStart = Input.mousePosition;
         }
 
+        if(Input.GetButton("Fire1"))
+        {
+            DraggingData data;
+            Vector2 mousePosition = Input.mousePosition;
+
+            data.direction = dragStart - mousePosition;
+            data.forceMultiplier = forceMultiplier;
+
+            data.mass = rb.mass;
+            data.radius = GetComponent<SphereCollider>().radius;
+
+            onDragging.Invoke(data);
+        }
+
         if(Input.GetButtonUp("Fire1"))
         {
             dragEnd = Input.mousePosition;
@@ -46,3 +63,16 @@ public class Throwable : MonoBehaviour
         pendingThrow = false;
     }
 }
+
+[Serializable]
+public struct DraggingData
+{
+    public Vector2 direction;
+    public float forceMultiplier;
+
+    public float mass;
+    public float radius;
+}
+
+[Serializable]
+public class DraggingEvent : UnityEvent<DraggingData> { }
