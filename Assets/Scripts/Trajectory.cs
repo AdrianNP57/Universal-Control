@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO refactor required
 public class Trajectory : MonoBehaviour
 {
     private DottedLineRenderer line;
@@ -16,6 +17,8 @@ public class Trajectory : MonoBehaviour
     private Vector3 acceleration;
 
     private float timeUntilDot;
+
+    private List<Attractor> influencingAttractors = new List<Attractor>();
 
     // Start is called before the first frame update
     void Awake()
@@ -43,17 +46,15 @@ public class Trajectory : MonoBehaviour
     {
         Vector3 newPosition = position + velocity * Time.fixedDeltaTime + 0.5f * acceleration * Mathf.Pow(Time.fixedDeltaTime, 2);
         Vector3 newAcceleration = Vector3.zero;
+        position = newPosition;
 
-        foreach (Attractor attractor in attractors)
+        foreach (Attractor attractor in influencingAttractors)
         {
-            newAcceleration += CalculateAttractorAcceleration(data, attractor);
+            newAcceleration += attractor.CalculateForce(position, data.mass) / data.mass;
         }
 
         Vector3 newVelocity = velocity + (acceleration + newAcceleration) * 0.5f * Time.fixedDeltaTime;
 
-        position = newPosition;
-        velocity = newVelocity;
-        acceleration = newAcceleration;
 
         timeUntilDot -= Time.fixedDeltaTime;
         if(timeUntilDot < 0)
@@ -61,18 +62,32 @@ public class Trajectory : MonoBehaviour
             line.positions.Add(position);
             timeUntilDot = dotsStepSeconds;
         }
+
+        influencingAttractors.Clear();
+
+        foreach(Attractor attractor in attractors)
+        {
+            if (IsInsideField(data, attractor))
+            {
+                influencingAttractors.Add(attractor);
+            }
+        }
+
+        position = newPosition;
+        velocity = newVelocity;
+        acceleration = newAcceleration;
     }
 
-    private Vector3 CalculateAttractorAcceleration(DraggingData data, Attractor attractor)
+    private bool IsInsideField(DraggingData data, Attractor attractor)
     {
         float distance = Vector3.Distance(position, attractor.transform.position);
 
         // TODO generify this
         if(distance <= attractor.GetRadius() + data.radius * 0.1)
         {
-            return attractor.CalculateForce(position, data.mass) / data.mass;
+            return true;
         }
 
-        return Vector3.zero;
+        return false;
     }
 }
