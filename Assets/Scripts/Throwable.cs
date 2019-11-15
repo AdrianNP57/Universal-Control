@@ -15,12 +15,14 @@ public class Throwable : MonoBehaviour
     private Vector2 dragEnd;
 
     private bool pendingThrow;
+    private Vector3 initialPosition;
 
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         pendingThrow = false;
+        initialPosition = rb.position;
     }
 
     // Update is called once per frame
@@ -49,6 +51,13 @@ public class Throwable : MonoBehaviour
         {
             dragEnd = Input.mousePosition;
             pendingThrow = true;
+        }
+
+        if(Input.GetKeyUp("r"))
+        {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.position = initialPosition;
         }
     }
 
