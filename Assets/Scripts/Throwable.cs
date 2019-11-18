@@ -42,7 +42,7 @@ public class Throwable : MonoBehaviour
             data.forceMultiplier = forceMultiplier;
 
             data.mass = rb.mass;
-            data.radius = GetComponent<SphereCollider>().radius;
+            data.radius = GetComponent<SphereCollider>().radius * transform.localScale.x;
 
             onDragging.Invoke(data);
         }

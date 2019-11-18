@@ -56,7 +56,7 @@ public class Attractor : MonoBehaviour
         {
             if(collider.isTrigger)
             {
-                return collider.radius;
+                return collider.radius * transform.localScale.x;
             }
         }
 
