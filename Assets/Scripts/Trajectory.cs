@@ -25,6 +25,8 @@ public class Trajectory : MonoBehaviour
     {
         line = GetComponent<DottedLineRenderer>();
         attractors = FindObjectsOfType<Attractor>();
+
+        transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
     }
 
     public void OnDragging(DraggingData data)
