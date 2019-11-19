@@ -6,18 +6,21 @@ using UnityEngine.Events;
 
 public class Throwable : MonoBehaviour
 {
-    public float forceMultiplier;
+    // Drag gesture properties
     public DraggingEvent onDragging;
-
-    private Rigidbody rb;
-
     private Vector2 dragStart;
     private Vector2 dragEnd;
 
+    // Throw properties
+    public float forceMultiplier;
     private bool pendingThrow;
+
+    // Object componets
+    private Rigidbody rb;
+    
+    // Initial values
     private Vector3 initialPosition;
 
-    // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,7 +28,6 @@ public class Throwable : MonoBehaviour
         initialPosition = rb.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetButtonDown("Fire1"))

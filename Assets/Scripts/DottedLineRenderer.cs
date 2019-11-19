@@ -5,19 +5,16 @@ using UnityEngine;
 // TODO perhaps make this more eficient
 public class DottedLineRenderer : MonoBehaviour
 {
+    // Object to display as a dot in the line
     public GameObject dotPrefab;
 
+    // Positions of the line
     [HideInInspector]
     public List<Vector3> positions = new List<Vector3>();
 
+    // Dots to display
     private List<GameObject> dots = new List<GameObject>();
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         foreach(GameObject dot in dots)

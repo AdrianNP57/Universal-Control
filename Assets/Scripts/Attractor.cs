@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
+    // Universal constant
     private const float G = 0.6674f;
 
+    // Object components
     private Rigidbody rb;
+
+    // Current objects in range
     private List<Rigidbody> objectsInArea = new List<Rigidbody>();
 
     private void Awake()

@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class Trajectory : MonoBehaviour
 {
-    private DottedLineRenderer line;
-
-    public int dotsCount;
-    public float dotsStepSeconds;
-
-    private Attractor[] attractors;
-
+    // Current iteration properties
     private Vector3 position;
     private Vector3 velocity;
     private Vector3 acceleration;
     private Vector3 newAcceleration;
-
-    private float timeUntilDot;
-
     private List<Attractor> influencingAttractors = new List<Attractor>();
 
-    // Start is called before the first frame update
+    // Trajectory properties
+    public int dotsCount;
+    public float dotsStepSeconds;
+    private float timeUntilDot;
+
+    // Line renderer
+    private DottedLineRenderer line;
+
     void Awake()
     {
         line = GetComponent<DottedLineRenderer>();
-        attractors = FindObjectsOfType<Attractor>();
     }
 
     public void OnDragging(DraggingData data)
