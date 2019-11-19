@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO refactor required
 public class Trajectory : MonoBehaviour
 {
     private DottedLineRenderer line;
@@ -15,6 +14,7 @@ public class Trajectory : MonoBehaviour
     private Vector3 position;
     private Vector3 velocity;
     private Vector3 acceleration;
+    private Vector3 newAcceleration;
 
     private float timeUntilDot;
 
@@ -44,50 +44,69 @@ public class Trajectory : MonoBehaviour
 
     private void SimulatePosition(DraggingData data)
     {
-        Vector3 newPosition = position + velocity * Time.fixedDeltaTime + 0.5f * acceleration * Mathf.Pow(Time.fixedDeltaTime, 2);
-        Vector3 newAcceleration = Vector3.zero;
-        position = newPosition;
+        position = CalcNewPosition(position, velocity, acceleration);
+        newAcceleration = CalcNewAcceleration(position, data.mass);
+        velocity = CalcNewVelocity(velocity, acceleration, newAcceleration);
+        acceleration = newAcceleration;
+
+        UpdateLine();
+        UpdateInfluecingAttractors();
+    }
+
+    private Vector3 CalcNewPosition(Vector3 pos, Vector3 vel, Vector3 acc)
+    {
+        return pos + vel * Time.fixedDeltaTime + 0.5f * acc * Mathf.Pow(Time.fixedDeltaTime, 2);
+    }
+
+    private Vector3 CalcNewVelocity(Vector3 vel, Vector3 acc, Vector3 newAcc)
+    {
+        return vel + (acc + newAcc) * 0.5f * Time.fixedDeltaTime;
+    }
+
+    private Vector3 CalcNewAcceleration(Vector3 pos, float mass)
+    {
+        Vector3 newAcc = Vector3.zero;
 
         foreach (Attractor attractor in influencingAttractors)
         {
-            newAcceleration += attractor.CalculateForce(position, data.mass) / data.mass;
+            newAcc += attractor.CalculateForce(pos, mass) / mass;
         }
 
-        Vector3 newVelocity = velocity + (acceleration + newAcceleration) * 0.5f * Time.fixedDeltaTime;
+        return newAcc;
+    }
 
-
+    private void UpdateLine()
+    {
         timeUntilDot -= Time.fixedDeltaTime;
-        if(timeUntilDot < 0)
+
+        if (timeUntilDot < 0)
         {
             line.positions.Add(position);
             timeUntilDot = dotsStepSeconds;
         }
+    }
+
+    private void UpdateInfluecingAttractors()
+    {
+        GameObject asteroid = GameObject.FindGameObjectWithTag("Player");
+        SphereCollider asteroidCollider = asteroid.GetComponent<SphereCollider>();
+
+        float asteroidScale = asteroid.transform.localScale.x;
+        float sphereRadius = asteroidCollider.radius * asteroidScale;
+        Vector3 sphereCenter = position + asteroidCollider.center * asteroidScale;
+
+        Collider[] attractorsColliders = Physics.OverlapSphere(sphereCenter, sphereRadius);
 
         influencingAttractors.Clear();
 
-        foreach(Attractor attractor in attractors)
+        foreach (Collider collider in attractorsColliders)
         {
-            if (IsInsideField(data, attractor))
+            Attractor attractor = collider.gameObject.GetComponent<Attractor>();
+
+            if (collider.isTrigger && attractor != null)
             {
                 influencingAttractors.Add(attractor);
             }
         }
-
-        position = newPosition;
-        velocity = newVelocity;
-        acceleration = newAcceleration;
-    }
-
-    private bool IsInsideField(DraggingData data, Attractor attractor)
-    {
-        float distance = Vector3.Distance(position, attractor.transform.position);
-
-        // TODO generify this
-        if(distance <= attractor.GetRadius() + data.radius * 0.1)
-        {
-            return true;
-        }
-
-        return false;
     }
 }

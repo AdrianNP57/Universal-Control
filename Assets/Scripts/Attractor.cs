@@ -27,16 +27,6 @@ public class Attractor : MonoBehaviour
         objectInArea.AddForce(CalculateForce(objectInArea.position, objectInArea.mass));
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        objectsInArea.Add(other.gameObject.GetComponent<Rigidbody>());
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        objectsInArea.Remove(other.gameObject.GetComponent<Rigidbody>());
-    }
-
     public Vector3 CalculateForce(Vector3 position, float mass)
     {
         Vector3 direction = rb.position - position;
@@ -50,16 +40,13 @@ public class Attractor : MonoBehaviour
         return direction.normalized * forceMagnitude;
     }
 
-    public float GetRadius()
+    private void OnTriggerEnter(Collider other)
     {
-        foreach (SphereCollider collider in GetComponents<SphereCollider>())
-        {
-            if(collider.isTrigger)
-            {
-                return collider.radius;
-            }
-        }
+        objectsInArea.Add(other.gameObject.GetComponent<Rigidbody>());
+    }
 
-        return 0f;
+    private void OnTriggerExit(Collider other)
+    {
+        objectsInArea.Remove(other.gameObject.GetComponent<Rigidbody>());
     }
 }

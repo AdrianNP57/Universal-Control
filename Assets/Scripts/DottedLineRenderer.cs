@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO perhaps make this more eficient
 public class DottedLineRenderer : MonoBehaviour
 {
     public GameObject dotPrefab;

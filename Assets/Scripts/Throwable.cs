@@ -40,9 +40,7 @@ public class Throwable : MonoBehaviour
 
             data.direction = dragStart - mousePosition;
             data.forceMultiplier = forceMultiplier;
-
             data.mass = rb.mass;
-            data.radius = GetComponent<SphereCollider>().radius;
 
             onDragging.Invoke(data);
         }
@@ -78,9 +76,7 @@ public struct DraggingData
 {
     public Vector2 direction;
     public float forceMultiplier;
-
     public float mass;
-    public float radius;
 }
 
 [Serializable]
