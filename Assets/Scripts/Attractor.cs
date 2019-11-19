@@ -7,7 +7,7 @@ public class Attractor : MonoBehaviour
     private const float G = 0.6674f;
 
     private Rigidbody rb;
-    private static List<Rigidbody> objectsInArea = new List<Rigidbody>();
+    private List<Rigidbody> objectsInArea = new List<Rigidbody>();
 
     private void Awake()
     {
