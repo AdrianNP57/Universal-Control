@@ -29,7 +29,7 @@ public class Trajectory : MonoBehaviour
         line.positions.Clear();
 
         position = transform.position;
-        acceleration = data.forceMultiplier * data.direction / data.mass;
+        acceleration = data.direction / data.mass;
         velocity = acceleration * 0.5f * Time.fixedDeltaTime;
         timeUntilDot = 0;
 

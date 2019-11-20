@@ -8,11 +8,14 @@ public class Throwable : MonoBehaviour
 {
     // Drag gesture properties
     public DraggingEvent onDragging;
+
     private Vector2 dragStart;
     private Vector2 dragEnd;
 
     // Throw properties
     public float forceMultiplier;
+    public float minThrowMagnitude;
+    public float maxThrowMagnitude;
     private bool pendingThrow;
 
     // Object componets
@@ -38,10 +41,10 @@ public class Throwable : MonoBehaviour
         if(Input.GetButton("Fire1"))
         {
             DraggingData data;
-            Vector2 mousePosition = Input.mousePosition;
 
-            data.direction = dragStart - mousePosition;
-            data.forceMultiplier = forceMultiplier;
+            dragEnd = Input.mousePosition;
+
+            data.direction = CalcThrowVector();
             data.mass = rb.mass;
 
             onDragging.Invoke(data);
@@ -65,11 +68,34 @@ public class Throwable : MonoBehaviour
     {
         if(pendingThrow)
         {
-            Vector2 direction = dragStart - dragEnd;
-            rb.AddForce(forceMultiplier * direction);
+            rb.AddForce(CalcThrowVector());
         }
 
         pendingThrow = false;
+    }
+
+    private Vector2 CalcThrowVector()
+    {
+        Vector2 worldStart = ToWorldPoint(dragStart);
+        Vector2 worldEnd = ToWorldPoint(dragEnd);
+
+        Vector2 throwVector = forceMultiplier * (worldStart - worldEnd);
+
+        if(throwVector.magnitude < minThrowMagnitude)
+        {
+            throwVector = Vector2.zero;
+        }
+        else if(throwVector.magnitude > maxThrowMagnitude)
+        {
+            throwVector = throwVector.normalized * maxThrowMagnitude;
+        }
+
+        return throwVector;
+    }
+
+    private Vector3 ToWorldPoint(Vector2 point)
+    {
+        return Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, Camera.main.nearClipPlane));
     }
 }
 
@@ -77,7 +103,6 @@ public class Throwable : MonoBehaviour
 public struct DraggingData
 {
     public Vector2 direction;
-    public float forceMultiplier;
     public float mass;
 }
 
