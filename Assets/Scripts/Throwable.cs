@@ -16,7 +16,10 @@ public class Throwable : MonoBehaviour
     public float forceMultiplier;
     public float minThrowMagnitude;
     public float maxThrowMagnitude;
-    private bool pendingThrow;
+    public float maxStartPointRange;
+
+    private bool pendingThrow = false;
+    private bool validStart = false;
 
     // Object componets
     private Rigidbody rb;
@@ -27,7 +30,6 @@ public class Throwable : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        pendingThrow = false;
         initialPosition = rb.position;
     }
 
@@ -36,31 +38,35 @@ public class Throwable : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             dragStart = Input.mousePosition;
+            validStart = ((Vector2)(ToWorldPoint(dragStart) - initialPosition)).magnitude < maxStartPointRange;
         }
 
-        if(Input.GetButton("Fire1"))
+        if(validStart)
         {
-            DraggingData data;
+            if (Input.GetButton("Fire1"))
+            {
+                DraggingData data;
 
-            dragEnd = Input.mousePosition;
+                dragEnd = Input.mousePosition;
 
-            data.direction = CalcThrowVector();
-            data.mass = rb.mass;
+                data.direction = CalcThrowVector();
+                data.mass = rb.mass;
 
-            onDragging.Invoke(data);
-        }
+                onDragging.Invoke(data);
+            }
 
-        if(Input.GetButtonUp("Fire1"))
-        {
-            dragEnd = Input.mousePosition;
-            pendingThrow = true;
-        }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                dragEnd = Input.mousePosition;
+                pendingThrow = true;
+            }
 
-        if(Input.GetKeyUp("r"))
-        {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.position = initialPosition;
+            if (Input.GetKeyUp("r"))
+            {
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.position = initialPosition;
+            }
         }
     }
 
@@ -95,7 +101,7 @@ public class Throwable : MonoBehaviour
 
     private Vector3 ToWorldPoint(Vector2 point)
     {
-        return Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, Camera.main.nearClipPlane));
+        return Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, -Camera.main.transform.position.z));
     }
 }
 
