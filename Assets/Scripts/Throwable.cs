@@ -6,9 +6,11 @@ using UnityEngine.Events;
 
 public class Throwable : MonoBehaviour
 {
-    // Drag gesture properties
+    // Events
     public DraggingEvent onDragging;
+    public UnityEvent onThrow;
 
+    // Drag gesture 
     private Vector2 dragStart;
     private Vector2 dragEnd;
 
@@ -51,6 +53,7 @@ public class Throwable : MonoBehaviour
 
                 data.direction = CalcThrowVector();
                 data.mass = rb.mass;
+                data.clampedStrength = data.direction.magnitude / maxThrowMagnitude;
 
                 onDragging.Invoke(data);
             }
@@ -59,6 +62,8 @@ public class Throwable : MonoBehaviour
             {
                 dragEnd = Input.mousePosition;
                 pendingThrow = true;
+
+                onThrow.Invoke();
             }
 
             if (Input.GetKeyUp("r"))
@@ -110,6 +115,7 @@ public struct DraggingData
 {
     public Vector2 direction;
     public float mass;
+    public float clampedStrength;
 }
 
 [Serializable]
