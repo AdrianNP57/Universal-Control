@@ -245,10 +245,11 @@ GameObject:
   - component: {fileID: 418172}
   - component: {fileID: 3365930}
   - component: {fileID: 2318882}
-  - component: {fileID: 317464216553343047}
-  - component: {fileID: 822556032769302102}
-  - component: {fileID: -6562481678292435907}
-  - component: {fileID: 2917081445990836942}
+  - component: {fileID: 7905985870673733272}
+  - component: {fileID: 2928673115780149654}
+  - component: {fileID: 3361399221088256902}
+  - component: {fileID: 7662056300058215742}
+  - component: {fileID: 438729758776245938}
   m_Layer: 0
   m_Name: Planet_Sun
   m_TagString: Untagged
@@ -265,11 +266,11 @@ Transform:
   m_GameObject: {fileID: 136928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 447622}
   - {fileID: 412922}
-  - {fileID: 2094847866862494392}
+  - {fileID: 8756606090634455082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -319,7 +320,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &317464216553343047
+--- !u!54 &7905985870673733272
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -335,7 +336,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!135 &822556032769302102
+--- !u!135 &2928673115780149654
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,9 +347,9 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &-6562481678292435907
+--- !u!135 &3361399221088256902
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +362,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2917081445990836942
+--- !u!114 &7662056300058215742
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -373,6 +374,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15690ec74741e4b458dca2fde62eb9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &438729758776245938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d6ea85988dea7488e4bb53a201021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7.5
 --- !u!1 &143160
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +572,7 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 2
+  scalingMode: 0
   randomSeed: 0
   InitialModule:
     serializedVersion: 3
@@ -5742,17 +5756,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1001 &2094847866862630972
+--- !u!1001 &8756606090634850990
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 418172}
     m_Modifications:
-    - target: {fileID: 100004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
-      propertyPath: m_Name
-      value: PlanetFieldBlue
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5797,11 +5807,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
+      propertyPath: m_Name
+      value: PlanetFieldBlue
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
---- !u!4 &2094847866862494392 stripped
+--- !u!4 &8756606090634455082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6,
     type: 3}
-  m_PrefabInstance: {fileID: 2094847866862630972}
+  m_PrefabInstance: {fileID: 8756606090634850990}
   m_PrefabAsset: {fileID: 0}
