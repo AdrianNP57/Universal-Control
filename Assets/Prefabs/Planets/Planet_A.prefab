@@ -33,7 +33,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2609589486507590204}
+  - {fileID: 1205807625050149355}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15690ec74741e4b458dca2fde62eb9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2609589486507989176
+--- !u!1001 &1205807625050278767
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -146,7 +146,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
       propertyPath: m_Name
-      value: PlanetFieldP
+      value: PlanetFieldBlue
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,23 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
---- !u!4 &2609589486507590204 stripped
+--- !u!4 &1205807625050149355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6,
     type: 3}
-  m_PrefabInstance: {fileID: 2609589486507989176}
+  m_PrefabInstance: {fileID: 1205807625050278767}
   m_PrefabAsset: {fileID: 0}
