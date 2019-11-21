@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -9106014812074351009}
   - component: {fileID: 296095731}
   - component: {fileID: 296095733}
+  - component: {fileID: 198277673}
   m_Layer: 0
   m_Name: Planet_A
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15690ec74741e4b458dca2fde62eb9fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &198277673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d6ea85988dea7488e4bb53a201021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7.5
 --- !u!1001 &1205807625050278767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,10 +158,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 411794}
     m_Modifications:
-    - target: {fileID: 100004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
-      propertyPath: m_Name
-      value: PlanetFieldBlue
-      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -191,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
+      propertyPath: m_Name
+      value: PlanetFieldBlue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f261f5fb24808044923ec5a0b3dd5d6, type: 3}
