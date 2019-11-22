@@ -8,5 +8,7 @@ Universal Control is a 3D puzzle mobile video game for the Technology-driven exp
 - Gravity fields (graphics) --> PowerUp particles by MHLAB: https://assetstore.unity.com/packages/vfx/particles/powerup-particles-16458
 - Font --> Space Age: https://mickeyavenue.com/fonts/spaceage/
 - White hand (graphics) --> vrsandboxgame by ololralph: https://github.com/ololralph/vrsandboxgame
+- Some sound effects --> Space SFX - 102218 by GWriterStudio: https://assetstore.unity.com/packages/audio/sound-fx/space-sfx-102218-131463
+- Some more sound effects --> Universe Sounds Free Pack by Marcin Klosowski: https://assetstore.unity.com/packages/audio/ambient/sci-fi/universe-sounds-free-pack-118865
 
 Thanks for your support!
