@@ -85,7 +85,7 @@ public class Trajectory : MonoBehaviour
 
     private void UpdateInfluecingAttractors()
     {
-        GameObject asteroid = GameObject.FindGameObjectWithTag("Player");
+        GameObject asteroid = GameObject.FindGameObjectWithTag("Asteroid");
         SphereCollider asteroidCollider = asteroid.GetComponent<SphereCollider>();
 
         float asteroidScale = asteroid.transform.localScale.x;

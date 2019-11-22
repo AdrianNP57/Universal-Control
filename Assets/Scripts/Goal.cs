@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Asteroid"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

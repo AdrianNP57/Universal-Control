@@ -20,7 +20,7 @@ public class Throwable : MonoBehaviour
     public float maxThrowMagnitude;
     public float maxStartPointRange;
 
-    private bool pendingThrow = false;
+    private Vector2 throwVector = Vector2.zero;
     private bool validStart = false;
 
     // Object componets
@@ -61,9 +61,12 @@ public class Throwable : MonoBehaviour
             if (Input.GetButtonUp("Fire1"))
             {
                 dragEnd = Input.mousePosition;
-                pendingThrow = true;
-
-                onThrow.Invoke();
+                throwVector = CalcThrowVector();
+                    
+                if(throwVector.magnitude > 0)
+                {
+                    onThrow.Invoke();
+                }
             }
 
             if (Input.GetKeyUp("r"))
@@ -77,12 +80,12 @@ public class Throwable : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(pendingThrow)
+        if (throwVector.magnitude > 0)
         {
             rb.AddForce(CalcThrowVector());
         }
 
-        pendingThrow = false;
+        throwVector = Vector2.zero;
     }
 
     private Vector2 CalcThrowVector()
