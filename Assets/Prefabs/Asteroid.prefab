@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4869201145444633119}
   - component: {fileID: 2710101573438570543}
   - component: {fileID: 2141406464}
+  - component: {fileID: 7787150441813005028}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -177,6 +178,24 @@ MonoBehaviour:
   minThrowMagnitude: 50
   maxThrowMagnitude: 200
   maxStartPointRange: 0.5
+--- !u!114 &7787150441813005028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405adf0ed7c19084fa449da6b35c1ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerOffset: {x: -0.12, y: 0, z: -0.3}
+  initialAngularVelocity: 5
+  maxAngularVelocity: 30
+  angularAcceleration: 10
+  scaleDownVelocity: 10
+  scaleAfterRotate: 1
 --- !u!1 &828259878
 GameObject:
   m_ObjectHideFlags: 0

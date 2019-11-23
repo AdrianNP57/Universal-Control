@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // TODO refactor
-public class GodAnimation : MonoBehaviour
+public class GodAnimator : MonoBehaviour
 {
     // Fingers properties
     public GameObject[] indices;

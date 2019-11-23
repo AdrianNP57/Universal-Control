@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GodRotation : MonoBehaviour
+public class GodRotator : MonoBehaviour
 {
     // Target
     private Vector3 rotateAround;
