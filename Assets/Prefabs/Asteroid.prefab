@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dotPrefab: {fileID: 6972245932112675335, guid: 9e2b6a8f8eee8bc47a644158d1d71aa0,
     type: 3}
+  dotScale: 1.1
   positions: []
 --- !u!114 &828259879
 MonoBehaviour:

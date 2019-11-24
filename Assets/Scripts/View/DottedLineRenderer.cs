@@ -7,6 +7,7 @@ public class DottedLineRenderer : MonoBehaviour
 {
     // Object to display as a dot in the line
     public GameObject dotPrefab;
+    public float dotScale;
 
     // Positions of the line
     [HideInInspector]
@@ -20,6 +21,7 @@ public class DottedLineRenderer : MonoBehaviour
         for(int i = 0; i < dots.Length; i++)
         {
             dots[i] = Instantiate(dotPrefab, transform);
+            dots[i].transform.localScale = dotScale * Vector3.one;
         }
 
         DisableAll();
