@@ -25,11 +25,6 @@ public class GodAnimator : MonoBehaviour
     {
     }
 
-    private void IdleAnimation()
-    {
-
-    }
-
     public void PreThrowAnimation(DraggingData data)
     {
         for(int i = 0; i < indices.Length; i++)
@@ -44,6 +39,17 @@ public class GodAnimator : MonoBehaviour
     public void ThrowAnimation()
     {
         StartCoroutine(RotateOverTime(throwTime));
+    }
+
+    public void RestartPosition()
+    {
+        for(int i = 0; i < indices.Length; i++)
+        {
+            Vector3 rotation = indices[i].transform.localRotation.eulerAngles;
+            rotation.z = preThrowRanges[i].min;
+
+            indices[i].transform.localRotation = Quaternion.Euler(rotation);
+        }
     }
 
     private IEnumerator RotateOverTime(float seconds)

@@ -68,13 +68,6 @@ public class Throwable : MonoBehaviour
                     onThrow.Invoke();
                 }
             }
-
-            if (Input.GetKeyUp("r"))
-            {
-                rb.velocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                rb.position = initialPosition;
-            }
         }
     }
 
@@ -86,6 +79,13 @@ public class Throwable : MonoBehaviour
         }
 
         throwVector = Vector2.zero;
+    }
+
+    public void RestartPosition()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.position = initialPosition;
     }
 
     private Vector2 CalcThrowVector()
@@ -110,6 +110,14 @@ public class Throwable : MonoBehaviour
     private Vector3 ToWorldPoint(Vector2 point)
     {
         return Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, -Camera.main.transform.position.z));
+    }
+
+    private void OnBecameInvisible()
+    {
+        if(gameObject.CompareTag("Asteroid"))
+        {
+            FindObjectOfType<LevelRestarter>().RestartLevel();
+        }
     }
 }
 

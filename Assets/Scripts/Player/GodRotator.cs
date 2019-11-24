@@ -28,4 +28,10 @@ public class GodRotator : MonoBehaviour
 
         transform.RotateAround(rotateAround, Vector3.forward, angle);
     }
+
+    public void RestartRotation()
+    {
+        transform.position = initialPos;
+        transform.rotation = initialRot;
+    }
 }
