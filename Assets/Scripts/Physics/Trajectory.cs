@@ -12,7 +12,7 @@ public class Trajectory : MonoBehaviour
     private List<Attractor> influencingAttractors = new List<Attractor>();
 
     // Trajectory properties
-    public int dotsCount;
+    public float dotQuantityMultiplier;
     public float dotsStepSeconds;
     private float timeUntilDot;
 
@@ -33,7 +33,7 @@ public class Trajectory : MonoBehaviour
         velocity = acceleration * 0.5f * Time.fixedDeltaTime;
         timeUntilDot = 0;
 
-        for (int i = 0; i < dotsCount * (dotsStepSeconds / Time.fixedDeltaTime); i++)
+        for (int i = 0; i < dotQuantityMultiplier * (dotsStepSeconds / Time.fixedDeltaTime); i++)
         {
             SimulatePosition(data);
         }

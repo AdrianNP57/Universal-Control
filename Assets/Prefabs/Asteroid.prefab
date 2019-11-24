@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f43b6c4db378a4db7812c9456e2203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dotsCount: 200
+  dotQuantityMultiplier: 1.5
   dotsStepSeconds: 1
 --- !u!1001 &2745653403963619490
 PrefabInstance:
@@ -275,21 +275,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
-        type: 3}
-      propertyPath: scalingMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8934562342124852017, guid: 791ed276ddb8a8244880a60a5a31beb9,
         type: 3}
@@ -345,6 +330,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
+        type: 3}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934562342124852019, guid: 791ed276ddb8a8244880a60a5a31beb9,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791ed276ddb8a8244880a60a5a31beb9, type: 3}
