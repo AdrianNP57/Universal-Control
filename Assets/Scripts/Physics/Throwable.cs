@@ -116,7 +116,7 @@ public class Throwable : MonoBehaviour
     {
         if(gameObject.CompareTag("Asteroid"))
         {
-            FindObjectOfType<LevelRestarter>().RestartLevel();
+            FindObjectOfType<LevelRestarter>()?.RestartLevel();
         }
     }
 }
