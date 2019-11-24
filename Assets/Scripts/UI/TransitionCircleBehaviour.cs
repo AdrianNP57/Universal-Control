@@ -17,7 +17,6 @@ public class TransitionCircleBehaviour : MonoBehaviour
     {
         rect = GetComponent<RectTransform>();
 
-        rect.anchoredPosition = CalcCenter();
         rect.sizeDelta = CalcMaxSize() * Vector2.one;
     }
 
@@ -25,8 +24,6 @@ public class TransitionCircleBehaviour : MonoBehaviour
     {
         float maxSize = CalcMaxSize();
         float sizeChangePerSecond = maxSize / animationTime;
-
-        rect.anchoredPosition = CalcCenter();
 
         if(shrink)
         {
@@ -45,21 +42,25 @@ public class TransitionCircleBehaviour : MonoBehaviour
         }
     }
 
-    public void Shrink(float time)
+    public void Shrink(float time, GameObject center)
     {
         shrink = true;
         animationTime = time;
+
+        rect.anchoredPosition = CalcCenter(center);
     }
 
-    public void Expand(float time)
+    public void Expand(float time, GameObject center)
     {
         expand = true;
         animationTime = time;
+
+        rect.anchoredPosition = CalcCenter(center);
     }
 
-    private Vector2 CalcCenter()
+    private Vector2 CalcCenter(GameObject go)
     {
-        Vector3 worldCenter = GameObject.FindGameObjectWithTag("BlackHole").transform.position;
+        Vector3 worldCenter = go.transform.position;
 
         return Camera.main.WorldToScreenPoint(worldCenter);
     }

@@ -354,6 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 4
+  transitionTime: 1
+  waitingTime: 0.5
 --- !u!1001 &332503759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,6 +591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 3
+  transitionTime: 1
+  waitingTime: 0.5
 --- !u!1 &379753369
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 0
+  transitionTime: 1
+  waitingTime: 0.5
 --- !u!1 &414249659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1074,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4836865246735153633, guid: 4e50288f1978c134fb8957557754288a, type: 3}
-    - {fileID: 4140573381606541392, guid: 4e50288f1978c134fb8957557754288a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e50288f1978c134fb8957557754288a, type: 3}
 --- !u!1 &835946882
 GameObject:
@@ -1429,6 +1434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 1
+  transitionTime: 1
+  waitingTime: 0.5
 --- !u!1 &1805712644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,3 +1847,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelIndex: 2
+  transitionTime: 1
+  waitingTime: 0.5

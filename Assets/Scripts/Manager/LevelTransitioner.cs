@@ -24,7 +24,7 @@ public class LevelTransitioner : MonoBehaviour
 
     private void Start()
     {
-        circle.Shrink(transitionTime);
+        circle.Shrink(transitionTime, GameObject.FindGameObjectWithTag("BlackHole"));
     }
 
     public void NextLevel()
@@ -39,7 +39,7 @@ public class LevelTransitioner : MonoBehaviour
 
     private IEnumerator NextLevelCR()
     {
-        circle.Expand(transitionTime);
+        circle.Expand(transitionTime, GameObject.FindGameObjectWithTag("BlackHole"));
 
         yield return new WaitForSeconds(transitionTime + waitingTime);
 
