@@ -465,7 +465,7 @@ PrefabInstance:
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: field of view
-      value: 30.456718
+      value: 30.243845
       objectReference: {fileID: 0}
     - target: {fileID: 9114731806005428510, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
@@ -489,6 +489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4836865246735153633, guid: 4e50288f1978c134fb8957557754288a, type: 3}
+    - {fileID: 4140573381606541392, guid: 4e50288f1978c134fb8957557754288a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4e50288f1978c134fb8957557754288a, type: 3}
 --- !u!1 &835946882
 GameObject:
