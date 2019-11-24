@@ -187,6 +187,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
       propertyPath: onDragging.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 5026490060081901360}
@@ -198,6 +202,26 @@ PrefabInstance:
       propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 5026490060081901360}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5026490060830008481}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnThrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2141406464, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
+      propertyPath: onThrow.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ead4c151b2850004782f62d3ac573cbe, type: 3}
 --- !u!4 &5026490060574622206 stripped
@@ -206,3 +230,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5026490060574546566}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5026490060830008481 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 828259879, guid: ead4c151b2850004782f62d3ac573cbe,
+    type: 3}
+  m_PrefabInstance: {fileID: 5026490060574546566}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f43b6c4db378a4db7812c9456e2203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

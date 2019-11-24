@@ -39,6 +39,11 @@ public class Trajectory : MonoBehaviour
         }
     }
 
+    public void OnThrow()
+    {
+        line.positions.Clear();
+    }
+
     private void SimulatePosition(DraggingData data)
     {
         position = CalcNewPosition(position, velocity, acceleration);
