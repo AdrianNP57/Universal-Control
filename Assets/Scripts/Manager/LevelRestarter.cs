@@ -16,15 +16,6 @@ public class LevelRestarter : MonoBehaviour
         god = GameObject.FindGameObjectWithTag("God");
     }
 
-
-    private void Update()
-    {
-        if (Input.GetKeyUp("r"))
-        {
-            RestartLevel();
-        }
-    }
-
     public void RestartLevel()
     {
         asteroid.GetComponent<Throwable>().RestartPosition();
