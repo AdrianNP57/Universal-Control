@@ -46,7 +46,7 @@ public class Trajectory : MonoBehaviour
         velocity = CalcNewVelocity(velocity, acceleration, newAcceleration);
         acceleration = newAcceleration;
 
-        UpdateLine();
+        UpdateLine(data);
         UpdateInfluecingAttractors();
     }
 
@@ -72,14 +72,14 @@ public class Trajectory : MonoBehaviour
         return newAcc;
     }
 
-    private void UpdateLine()
+    private void UpdateLine(DraggingData data)
     {
         timeUntilDot -= Time.fixedDeltaTime;
 
         if (timeUntilDot < 0)
         {
             line.positions.Add(position);
-            timeUntilDot = dotsStepSeconds;
+            timeUntilDot = dotsStepSeconds / Mathf.Sqrt(data.direction.magnitude);
         }
     }
 

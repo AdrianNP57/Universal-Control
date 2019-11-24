@@ -13,23 +13,34 @@ public class DottedLineRenderer : MonoBehaviour
     public List<Vector3> positions = new List<Vector3>();
 
     // Dots to display
-    private List<GameObject> dots = new List<GameObject>();
+    private GameObject[] dots = new GameObject[200];
+
+    private void Awake()
+    {
+        for(int i = 0; i < dots.Length; i++)
+        {
+            dots[i] = Instantiate(dotPrefab, transform);
+        }
+
+        DisableAll();
+    }
 
     void Update()
     {
-        foreach(GameObject dot in dots)
+        DisableAll();
+
+        for (int i = 0; i < positions.Count && i < dots.Length; i++)
         {
-            Destroy(dot);
+            dots[i].transform.position = positions[i];
+            dots[i].SetActive(true);
         }
+    }
 
-        dots.Clear();
-
-        foreach(Vector3 position in positions)
+    private void DisableAll()
+    {
+        for(int i = 0; i < dots.Length; i++)
         {
-            GameObject dot = Instantiate(dotPrefab, transform);
-            dot.transform.position = position;
-
-            dots.Add(dot);
+            dots[i].SetActive(false);
         }
     }
 }
