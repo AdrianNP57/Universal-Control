@@ -429,17 +429,37 @@ PrefabInstance:
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.1007109
+      value: 0.06965026
       objectReference: {fileID: 0}
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7985782
+      value: 0.8606995
       objectReference: {fileID: 0}
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: field of view
       value: 27.995987
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392434567258359401, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392434567258359401, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392434567258359401, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392434567258359401, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e50288f1978c134fb8957557754288a, type: 3}

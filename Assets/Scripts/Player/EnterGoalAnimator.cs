@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class EnterGoalAnimator : MonoBehaviour
 {
-    private GameObject goal = null;
-
-    public Vector3 centerOffset;
-
+    // Parameters
     public float initialAngularVelocity;
     public float maxAngularVelocity;
     public float angularAcceleration;
 
     public float scaleDownVelocity;
-
     public bool scaleAfterRotate;
 
+    public Vector3 centerOffset;
+
+    // State variables
+    private GameObject goal = null;
+
+    // Components
     private Rigidbody rb;
+
+    // temp
+    public float circleScale;
 
     private void Awake()
     {
@@ -26,28 +31,7 @@ public class EnterGoalAnimator : MonoBehaviour
 
     void Update()
     {
-        if(goal != null)
-        {
-            transform.position = goal.transform.position + centerOffset;
-            rb.angularVelocity += angularAcceleration * Time.deltaTime * Vector3.back;
-
-            bool maxAngularVelocityReached = Mathf.Abs(rb.angularVelocity.z) >= maxAngularVelocity;
-
-            if (maxAngularVelocityReached)
-            {
-                rb.angularVelocity = maxAngularVelocity * Vector3.back;
-            }  
-
-            if(maxAngularVelocityReached || !scaleAfterRotate)
-            {
-                transform.localScale -= scaleDownVelocity * Time.deltaTime * Vector3.one;
-
-                if (transform.localScale.x <= 0)
-                {
-                    transform.localScale = Vector3.zero;
-                }
-            }
-        }
+        Animate();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,6 +44,33 @@ public class EnterGoalAnimator : MonoBehaviour
             {
                 collider.enabled = false;
                 rb.angularVelocity = initialAngularVelocity * Vector3.back;
+            }
+        }
+    }
+
+    private void Animate()
+    {
+        if (goal != null)
+        {
+            transform.position = goal.transform.position + centerOffset;
+            rb.angularVelocity += angularAcceleration * Time.deltaTime * Vector3.back;
+
+            bool maxAngularVelocityReached = Mathf.Abs(rb.angularVelocity.z) >= maxAngularVelocity;
+
+            if (maxAngularVelocityReached)
+            {
+                rb.angularVelocity = maxAngularVelocity * Vector3.back;
+            }
+
+            if (maxAngularVelocityReached || !scaleAfterRotate)
+            {
+                transform.localScale -= scaleDownVelocity * Time.deltaTime * Vector3.one;
+
+                if (transform.localScale.x <= 0)
+                {
+                    transform.localScale = Vector3.zero;
+                    Object.FindObjectOfType<LevelTransitioner>().NextLevel();
+                }
             }
         }
     }

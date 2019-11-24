@@ -191,12 +191,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 405adf0ed7c19084fa449da6b35c1ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  centerOffset: {x: -0.12, y: 0, z: -0.3}
   initialAngularVelocity: 5
   maxAngularVelocity: 30
   angularAcceleration: 10
   scaleDownVelocity: 10
   scaleAfterRotate: 1
+  centerOffset: {x: -0.12, y: 0, z: -0.3}
+  circleScale: 0
 --- !u!1 &828259878
 GameObject:
   m_ObjectHideFlags: 0
