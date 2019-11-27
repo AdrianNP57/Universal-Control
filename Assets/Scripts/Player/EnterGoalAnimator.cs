@@ -12,16 +12,11 @@ public class EnterGoalAnimator : MonoBehaviour
     public float scaleDownVelocity;
     public bool scaleAfterRotate;
 
-    public Vector3 centerOffset;
-
     // State variables
     private GameObject goal = null;
 
     // Components
     private Rigidbody rb;
-
-    // temp
-    public float circleScale;
 
     private void Awake()
     {
@@ -52,7 +47,7 @@ public class EnterGoalAnimator : MonoBehaviour
     {
         if (goal != null)
         {
-            transform.position = goal.transform.position + centerOffset;
+            transform.position = CalculateAsteroidPosition();
             rb.angularVelocity += angularAcceleration * Time.deltaTime * Vector3.back;
 
             bool maxAngularVelocityReached = Mathf.Abs(rb.angularVelocity.z) >= maxAngularVelocity;
@@ -73,5 +68,13 @@ public class EnterGoalAnimator : MonoBehaviour
                 }
             }
         }
+    }
+
+    private Vector3 CalculateAsteroidPosition()
+    {
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(goal.transform.position);
+        screenPosition.z = 9.7f;
+
+        return Camera.main.ScreenToWorldPoint(screenPosition);
     }
 }
