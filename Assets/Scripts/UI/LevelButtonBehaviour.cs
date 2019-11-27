@@ -23,6 +23,7 @@ public class LevelButtonBehaviour : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        FindObjectOfType<AudioEffectPlayer>().OnSelect();
         StartCoroutine(LoadLevelCR());
     }
 

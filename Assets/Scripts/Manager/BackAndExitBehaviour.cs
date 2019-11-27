@@ -23,5 +23,7 @@ public class BackAndExitBehaviour : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenu");
         }
+
+        FindObjectOfType<AudioEffectPlayer>().OnSelect();
     }
 }

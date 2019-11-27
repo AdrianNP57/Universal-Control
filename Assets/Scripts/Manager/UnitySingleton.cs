@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class UnitySingleton : MonoBehaviour
 {
-    private static bool spawned = false;
+    // TODO this is so nasty but works for now
+    private static int spawned = 0;
+
     void Awake()
     {
-        if (!spawned)
+        if (spawned < 2)
         {
-            spawned = true;
+            spawned++;
             DontDestroyOnLoad(gameObject);
         }
         else
