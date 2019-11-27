@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,7 +20,7 @@ public class LevelTransitioner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        circle = Object.FindObjectOfType<TransitionCircleBehaviour>();
+        circle = FindObjectOfType<TransitionCircleBehaviour>();
     }
 
     private void Start()
@@ -43,6 +44,15 @@ public class LevelTransitioner : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime + waitingTime);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);        
+        int targetBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if(targetBuildIndex <= levelCount)
+        {
+            SceneManager.LoadScene(targetBuildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene("MainMenu");
+
+        }
     }
 }
