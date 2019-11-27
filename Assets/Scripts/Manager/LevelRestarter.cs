@@ -18,9 +18,14 @@ public class LevelRestarter : MonoBehaviour
 
     public void RestartLevel()
     {
-        asteroid.GetComponent<Throwable>().RestartPosition();
+        asteroid.GetComponent<Throwable>().Restart();
 
         god.GetComponent<GodAnimator>().RestartPosition();
         god.GetComponent<GodRotator>().RestartRotation();
+
+        foreach(Attractor attractor in FindObjectsOfType<Attractor>())
+        {
+            attractor.Clear();
+        }
     }
 }

@@ -28,11 +28,14 @@ public class Throwable : MonoBehaviour
     
     // Initial values
     private Vector3 initialPosition;
+    private Quaternion initialRotation;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
         initialPosition = rb.position;
+        initialRotation = rb.rotation;
     }
 
     void Update()
@@ -81,11 +84,13 @@ public class Throwable : MonoBehaviour
         throwVector = Vector2.zero;
     }
 
-    public void RestartPosition()
+    public void Restart()
     {
+        rb.position = initialPosition;
+        rb.rotation = initialRotation;
+
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
-        rb.position = initialPosition;
     }
 
     private Vector2 CalcThrowVector()

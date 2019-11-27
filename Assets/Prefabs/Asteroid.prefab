@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2710101573438570543}
   - component: {fileID: 2141406464}
   - component: {fileID: 7787150441813005028}
+  - component: {fileID: 627902110303419188}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Asteroid
@@ -198,6 +199,19 @@ MonoBehaviour:
   scaleAfterRotate: 1
   centerOffset: {x: -0.12, y: 0, z: -0.3}
   circleScale: 0
+--- !u!114 &627902110303419188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0924373d309f69d409b8d0abe3ba3990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeRestart: 1.5
 --- !u!1 &828259878
 GameObject:
   m_ObjectHideFlags: 0

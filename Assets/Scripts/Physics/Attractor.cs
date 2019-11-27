@@ -44,6 +44,11 @@ public class Attractor : MonoBehaviour
         return direction.normalized * forceMagnitude;
     }
 
+    public void Clear()
+    {
+        objectsInArea.Clear();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         objectsInArea.Add(other.gameObject.GetComponent<Rigidbody>());
