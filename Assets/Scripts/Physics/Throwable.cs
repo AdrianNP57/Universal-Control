@@ -22,6 +22,7 @@ public class Throwable : MonoBehaviour
 
     private Vector2 throwVector = Vector2.zero;
     private bool validStart = false;
+    private bool alreadyThrown = false;
 
     // Object componets
     private Rigidbody rb;
@@ -46,7 +47,7 @@ public class Throwable : MonoBehaviour
             validStart = ((Vector2)(ToWorldPoint(dragStart) - initialPosition)).magnitude < maxStartPointRange;
         }
 
-        if(validStart)
+        if(validStart && !alreadyThrown)
         {
             if (Input.GetButton("Fire1"))
             {
@@ -69,6 +70,7 @@ public class Throwable : MonoBehaviour
                 if(throwVector.magnitude > 0)
                 {
                     onThrow.Invoke();
+                    alreadyThrown = true;
                 }
             }
         }
@@ -91,6 +93,8 @@ public class Throwable : MonoBehaviour
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+
+        alreadyThrown = false;
     }
 
     private Vector2 CalcThrowVector()
