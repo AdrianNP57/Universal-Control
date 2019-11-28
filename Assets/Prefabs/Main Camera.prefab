@@ -61,7 +61,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 30.456718
+  field of view: 27.995987
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -190,4 +190,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minAspect: 1.3333334
-  maxAspect: 2
+  maxAspect: 2.1

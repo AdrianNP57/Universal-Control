@@ -30,13 +30,14 @@ Shader "Custom/OpaqueFresnel" {
             #include "UnityCG.cginc"
             #pragma multi_compile_fwdbase_fullshadows
             #pragma multi_compile_fog
-            #pragma only_renderers d3d9 d3d11 glcore gles 
+			// Adrian Navarro Perez and Samuel Soutullo Sobral removed this line in order for the shader to work on every renderer
+            //#pragma only_renderers d3d9 d3d11 glcore gles 
             #pragma target 3.0
             uniform float _FresnelValue;
             uniform float _FresnelPower;
             uniform float4 _Color;
             uniform float _FresnelIntensity;
-            struct VertexInput {
+			struct VertexInput {
                 float4 vertex : POSITION;
                 float3 normal : NORMAL;
                 float4 vertexColor : COLOR;

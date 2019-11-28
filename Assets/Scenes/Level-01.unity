@@ -238,6 +238,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: field of view
+      value: 27.995987
+      objectReference: {fileID: 0}
     - target: {fileID: 9114731806763518248, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -293,20 +308,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
+    - target: {fileID: 2130164674834210934, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.1007109
-      objectReference: {fileID: 0}
-    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7985782
-      objectReference: {fileID: 0}
-    - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
-        type: 3}
-      propertyPath: field of view
-      value: 27.995987
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e50288f1978c134fb8957557754288a, type: 3}

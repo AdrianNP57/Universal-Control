@@ -291,7 +291,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1000, y: 1000}
+  m_ReferenceResolution: {x: 720, y: 720}
   m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -724,7 +724,7 @@ PrefabInstance:
     - target: {fileID: 2119328924298615155, guid: 91b418f0fe1c3494db005c46acce0be7,
         type: 3}
       propertyPath: field of view
-      value: 31.332533
+      value: 27.995987
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b418f0fe1c3494db005c46acce0be7, type: 3}
