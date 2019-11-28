@@ -985,7 +985,7 @@ PrefabInstance:
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
       propertyPath: field of view
-      value: 30.881819
+      value: 31.332533
       objectReference: {fileID: 0}
     - target: {fileID: 7140270450308051414, guid: 4e50288f1978c134fb8957557754288a,
         type: 3}
@@ -1071,6 +1071,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4140573381606541392, guid: 4e50288f1978c134fb8957557754288a,
+        type: 3}
+      propertyPath: startInvisible
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4836865246735153633, guid: 4e50288f1978c134fb8957557754288a, type: 3}

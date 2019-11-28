@@ -13,11 +13,17 @@ public class TransitionCircleBehaviour : MonoBehaviour
     // Components
     private RectTransform rect;
 
+    // Parameters
+    public bool startInvisible;
+
     void Awake()
     {
         rect = GetComponent<RectTransform>();
 
-        rect.sizeDelta = CalcMaxSize() * Vector2.one;
+        if(!startInvisible)
+        {
+            rect.sizeDelta = CalcMaxSize() * Vector2.one;
+        }
     }
 
     private void Update()
